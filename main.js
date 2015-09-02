@@ -25,7 +25,12 @@ function generateSnow(variant) {
 		cloud.classList.add('snow');
 		cloud.classList.add(variant);
 		cloud.style.left = randomIntBetween(0, 100) + '%';
-		cloud.style.webkitAnimationDelay = randomIntBetween(0, 10000);
+		if(cloud.style.webkitAnimationDelay) {
+			cloud.style.webkitAnimationDelay = randomIntBetween(0, 10000);
+		} else if(cloud.style.animationDelay) {
+			cloud.style.animationDelay = randomIntBetween(0, 10000);
+		}
+		
 		canvas.appendChild(cloud);
 	}
 
